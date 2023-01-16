@@ -1,31 +1,25 @@
 require('dotenv').config();
-const http = require('http');
+// const http = require('http');
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 const cors = require('cors');
-const mongoose = require('mongoose');
-
-const blogSchema = new mongoose.Schema({
-  title: String,
-  author: String,
-  url: String,
-  likes: Number,
-});
-
-const Blog = mongoose.model('Blog', blogSchema);
-
-const mongoUrl = process.env.MONGODB_URI;
-mongoose.connect(mongoUrl);
+const Blog = require('./models/blog');
 
 app.use(cors());
 app.use(express.json());
+
+morgan.token('body', (req) => JSON.stringify(req.body));
+app.use(
+  morgan(':method :url :status :res[content-length] - :response-time ms :body')
+);
 
 // Test
 app.get('/', (_, response) => {
   response.send('<h1>Hello World!</>');
 });
 
-app.get('/api/blogs', (request, response) => {
+app.get('/api/blogs', (_request, response) => {
   Blog.find({}).then((blogs) => {
     response.json(blogs);
   });
