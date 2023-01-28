@@ -8,15 +8,17 @@ const totalLikes = (blogList) => {
 
 const favoriteBlog = (blogList) => {
   //
-  blogList.forEach((blog) => {
+  const newblogList = JSON.parse(JSON.stringify(blogList));
+  newblogList.forEach((blog) => {
     delete blog.url;
     delete blog._id;
     delete blog.__v;
+    // delete blog.blogs;
   });
 
-  let maxLike = Math.max(...blogList.map((item) => item.likes));
+  let maxLike = Math.max(...newblogList.map((item) => item.likes));
 
-  const favBlog = blogList.filter((obj) => obj.likes === maxLike);
+  const favBlog = newblogList.filter((obj) => obj.likes === maxLike);
 
   return favBlog[0];
 };
