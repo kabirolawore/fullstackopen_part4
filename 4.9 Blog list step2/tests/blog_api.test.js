@@ -10,23 +10,10 @@ const Blog = require('../models/blog');
 beforeEach(async () => {
   await Blog.deleteMany({});
 
-  let blogObject = new Blog(initialBlogs[0]);
-  await blogObject.save();
+  const blogObjects = initialBlogs.map((blog) => new Blog(blog));
 
-  blogObject = new Blog(initialBlogs[1]);
-  await blogObject.save();
-
-  blogObject = new Blog(initialBlogs[2]);
-  await blogObject.save();
-
-  blogObject = new Blog(initialBlogs[3]);
-  await blogObject.save();
-
-  blogObject = new Blog(initialBlogs[4]);
-  await blogObject.save();
-
-  blogObject = new Blog(initialBlogs[5]);
-  await blogObject.save();
+  const promiseArray = blogObjects.map((blog) => blog.save());
+  await Promise.all(promiseArray);
 });
 
 test('blogs are returned as json', async () => {
@@ -49,6 +36,13 @@ test('the first blog is about react patterns', async () => {
 
   const titles = response.body.map((n) => n.title);
   expect(titles).toContain('React patterns');
+});
+
+test('unique identifier property of the blogs is named id', async () => {
+  const response = await api.get('/api/blogs');
+
+  const id = response.body.map((n) => n.id);
+  expect(id).toBeDefined();
 });
 
 afterAll(async () => {
