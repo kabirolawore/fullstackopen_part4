@@ -1,5 +1,5 @@
 const blogsRouter = require('express').Router();
-const Blog = require('../../4.15 Bloglist expansion step3/models/blog');
+const Blog = require('../models/blog');
 
 // get all blogs
 blogsRouter.get('/', async (_request, response) => {
