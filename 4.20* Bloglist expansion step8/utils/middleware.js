@@ -23,8 +23,8 @@ const errorHandler = (error, _request, response, next) => {
 
 const tokenExtractor = (request, response, next) => {
   // Get the authorization header
-  // const authorization = request.headers.authorization;
   const authorization = request.get('authorization');
+  // same function as above const authorization = request.headers.authorization;
 
   if (!authorization) {
     return response.status(401).json({ error: 'missing authorization header' });
