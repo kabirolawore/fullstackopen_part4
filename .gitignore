@@ -1,3 +1,30 @@
 4.15 Bloglist expansion step3/node_modules
-4.16* Bloglist expansion step4/node_modules
+# 4.15 Bloglist expansion step3
+4.13 Blog list expansions step1/.env
 4.15 Bloglist expansion step3/.env
+4.16* Bloglist expansion step4/node_modules
+4.16* Bloglist expansion step4/.env
+4.17 Bloglist expansion step5/.env
+4.17 Bloglist expansion step5/node_modules
+4.18 Bloglist expansion step6/.env
+4.18 Bloglist expansion step6/node_modules
+4.19 Bloglist expansion step7/node_modules
+4.19 Bloglist expansion step7/.env
+4.19 Bloglist expansion step7/login.rest
+4.20* Bloglist expansion step8/.env
+4.20* Bloglist expansion step8/node_modules
+4.20* Bloglist expansion step8/login.rest
+4.13 Blog list expansions step1
+
+4.21* Bloglist expansion step9/node_modules
+4.21* Bloglist expansion step9/.env
+4.21* Bloglist expansion step9/login.rest
+4.22* Bloglist expansion step10/node_modules
+4.22* Bloglist expansion step10/.env
+4.22* Bloglist expansion step10/login.rest
+4.23* Bloglist expansion step11/node_modules
+4.23* Bloglist expansion step11/.env
+4.23* Bloglist expansion step11/login.rest
+
+.vscode
+.gitignore

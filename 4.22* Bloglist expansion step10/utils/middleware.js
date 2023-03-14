@@ -50,6 +50,7 @@ const tokenExtractor = (request, response, next) => {
 };
 
 const userExtractor = (request, response, next) => {
+  //
   const authorization = request.headers.authorization;
   const token = authorization.substring(7);
 
